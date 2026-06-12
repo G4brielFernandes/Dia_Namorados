@@ -1,0 +1,301 @@
+:root {
+    /* Paleta de Cores LoL Universe */
+    --lol-dark: #010a13;
+    --lol-card-bg: #091428;
+    --lol-gold: #c8aa6e;
+    --lol-gold-hover: #f0e6d2;
+    --lol-text: #a09b8c;
+    --lol-title: #f0e6d2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--lol-dark);
+    color: var(--lol-text);
+    font-family: 'Lora', serif;
+    overflow: hidden; /* Esconde a rolagem vertical padrão */
+}
+
+/* Barra de Progresso Dourada */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(200, 170, 110, 0.2);
+    z-index: 999;
+}
+
+#progressFill {
+    width: 0;
+    height: 100%;
+    background: var(--lol-gold);
+    box-shadow: 0 0 10px var(--lol-gold);
+    transition: width 0.3s ease-out;
+}
+
+/* Container Horizontal */
+.lore-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Esconde a barra de rolagem visualmente mas mantém a função */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+.lore-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cada Página/Card ocupa 100% da tela */
+.chapter {
+    min-width: 100vw;
+    height: 100vh;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+/* O Card Cinematográfico */
+.lore-card {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    background: var(--lol-card-bg);
+    border: 1px solid rgba(200, 170, 110, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(200, 170, 110, 0.1) inset;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 1s ease-out;
+}
+
+.chapter.active .lore-card {
+    opacity: 1;
+    transform: scale(1);
+    border-color: var(--lol-gold);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(200, 170, 110, 0.2) inset;
+}
+
+/* Lado da Imagem */
+.card-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.1);
+    transition: transform 10s linear;
+}
+
+.chapter.active .card-image img {
+    transform: scale(1.1); /* Efeito de zoom lento e épico */
+}
+
+/* Linha dourada separando foto e texto */
+.card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--lol-gold), transparent);
+}
+
+/* Lado do Texto */
+.card-content {
+    flex: 1;
+    padding: 3rem; /* Diminuído para dar mais espaço interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at center, rgba(9, 20, 40, 0.8) 0%, var(--lol-card-bg) 100%);
+    overflow-y: auto; /* Garante que o conteúdo não quebre o card */
+}
+
+/* Scrollbar Personalizada para o lado do texto (Estilo LoL) */
+.card-content::-webkit-scrollbar {
+    width: 6px;
+}
+.card-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.card-content::-webkit-scrollbar-thumb {
+    background: var(--lol-gold);
+    border-radius: 10px;
+}
+
+.chapter-number {
+    font-family: 'Cinzel', serif;
+    color: var(--lol-gold);
+    letter-spacing: 6px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chapter-number::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--lol-gold);
+}
+
+.card-content h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--lol-title);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.card-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--lol-text);
+}
+
+/* Seção Final do Desafio */
+.end-section {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(200, 170, 110, 0.2);
+    padding-top: 2rem;
+}
+
+.end-section h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--lol-gold);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Botão Estilo LoL */
+#btnQuiz {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid var(--lol-gold);
+    color: var(--lol-gold);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    display: inline-block; /* Garante que o botão respeite o fluxo e o espaçamento */
+}
+
+#btnQuiz::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(200, 170, 110, 0.1);
+    transition: all 0.4s ease;
+}
+
+#btnQuiz:hover {
+    background: var(--lol-gold);
+    color: var(--lol-dark);
+    box-shadow: 0 0 20px rgba(200, 170, 110, 0.5);
+}
+
+#btnQuiz:hover::before {
+    left: 0;
+}
+
+/* Instrução de Scroll */
+.scroll-hint {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--lol-gold);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* Efeito de Transição de Tela */
+#fadeScreen {
+    position: fixed;
+    inset: 0;
+    background: var(--lol-dark);
+    opacity: 0;
+    transition: 1.5s ease-in-out;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.fade-active {
+    opacity: 1 !important;
+}
+
+/* Responsividade para Celular */
+@media(max-width: 900px) {
+    .lore-card {
+        flex-direction: column;
+        height: 90vh;
+        overflow-y: hidden;
+    }
+    .card-image {
+        flex: none;
+        height: 35%; /* Reduzido levemente para dar mais espaço ao texto no mobile */
+    }
+    .card-image::after {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--lol-gold), transparent);
+    }
+    .card-content {
+        padding: 2rem;
+        height: 65%; /* Garante que a área de texto ocupe o restante */
+    }
+    .card-content h1 {
+        font-size: 2rem;
+    }
+    .card-content p {
+        font-size: 1rem;
+    }
+}

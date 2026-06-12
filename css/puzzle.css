@@ -1,0 +1,271 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,
+    #243b55,
+    #141e30,
+    #000);
+}
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    opacity:.25;
+
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
+
+    background-size:40px 40px;
+
+    animation:starsMove 30s linear infinite;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    min-height:100vh;
+
+    color:white;
+}
+
+.title{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#d8d8d8;
+    margin-bottom:25px;
+}
+
+.puzzle-board{
+    width:330px;
+    height:330px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(3,1fr);
+
+    gap:4px;
+}
+
+.piece{
+    background-image:url("../img/coracao-completo.jpg");
+    background-size:330px 330px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.2s;
+}
+
+.piece:hover{
+    transform:scale(1.03);
+}
+
+.selected{
+    border:3px solid #ff4d6d;
+}
+
+.btn-secondary,
+.btn-primary{
+    margin-top:25px;
+
+    border:none;
+
+    padding:14px 26px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:#ff4d6d;
+}
+
+#successOverlay.fade-out{
+
+    opacity:0;
+
+    transform:scale(1.15);
+
+    filter:blur(6px);
+}
+.success-overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    z-index:100;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+/* TREMER TELA */
+body.shake {
+    animation: shakeScreen 0.4s infinite;
+}
+
+@keyframes shakeScreen {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(2px,-2px); }
+    50% { transform: translate(-2px,2px); }
+    75% { transform: translate(2px,2px); }
+    100% { transform: translate(0,0); }
+}
+
+/* CORAÇÕES CAINDO */
+.heart-rain {
+    position: fixed;
+    top: -10vh;
+    font-size: 24px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh);
+        opacity: 0;
+    }
+}
+.hidden{
+    display:none;
+}
+
+.heart-complete{
+    font-size:5rem;
+
+    animation:pulse 1s infinite;
+}
+
+.letter{
+    margin-top:20px;
+
+    max-width:600px;
+
+    width:90%;
+
+    background:white;
+
+    color:#333;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    animation:letterOpen 1.2s ease;
+}
+
+.letter h2{
+    margin-bottom:20px;
+}
+
+.letter p{
+    margin-bottom:12px;
+    line-height:1.6;
+}
+
+#fadeScreen{
+    position:fixed;
+
+    inset:0;
+
+    background:black;
+
+    opacity:0;
+
+    transition:1.5s;
+
+    pointer-events:none;
+
+    z-index:999;
+}
+
+.fade-active{
+    opacity:1 !important;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes letterOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(100px);
+    }
+}
+
+@media(max-width:768px){
+
+    .puzzle-board{
+        width:300px;
+        height:300px;
+    }
+
+    .piece{
+        background-size:300px 300px;
+    }
+
+    .title{
+        font-size:2rem;
+        text-align:center;
+    }
+}

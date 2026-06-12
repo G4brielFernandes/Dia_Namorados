@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte Meu Coração ❤️</title>
+
+    <link rel="stylesheet" href="css/puzzle.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="audio/me_gusta.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="stars"></div>
+
+    <div class="container">
+
+        <h1 class="title">
+            Monte Meu Coração ❤️
+        </h1>
+
+        <p class="subtitle">
+            Organize as peças para revelar a primeira memória.
+        </p>
+
+        <div id="puzzleBoard" class="puzzle-board"></div>
+
+        <button id="btnShuffle" class="btn-secondary">
+            Embaralhar
+        </button>
+
+    </div>
+
+    <div id="successOverlay" class="success-overlay hidden">
+
+        <div class="heart-complete">
+            ❤️
+        </div>
+
+        <div class="letter">
+
+            <h2>Para Suely ❤️</h2>
+
+            <p>
+                Oi amor...
+            </p>
+
+            <p>
+                Antes de continuar, quero que saiba que esta não é apenas uma página na internet.
+            </p>
+
+            <p>
+                É uma pequena viagem pelas memórias mais importantes da minha vida.
+            </p>
+
+            <p>
+                Porque todas elas têm você.
+            </p>
+
+            <p>
+                E agora quero te levar para reviver cada uma delas.
+            </p>
+
+            <button id="btnHistory" class="btn-primary">
+                Conhecer Nossa História
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="fadeScreen"></div>
+
+    <script src="js/puzzle.js"></script>
+    <script src="music.js"></script>
+    <script>
+        Music.init();
+    </script>
+</body>
+</html>

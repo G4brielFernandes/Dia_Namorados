@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio do Amor ❤️</title>
+
+    <link rel="stylesheet" href="css/quiz.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="audio/me_gusta.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="background"></div>
+
+    <div class="quiz-container">
+
+        <h1>❤️ Desafio da Nossa História ❤️</h1>
+
+        <div class="hearts" id="heartsContainer">
+            ❤️ ❤️ ❤️ ❤️ ❤️
+        </div>
+
+        <div class="progress-container">
+            <div id="progressBar"></div>
+        </div>
+
+        <div class="question-card">
+
+            <h2 id="questionTitle"></h2>
+
+            <div id="answersContainer"></div>
+
+        </div>
+
+    </div>
+
+    <div id="successScreen" class="success-screen hidden">
+
+        <h1>✨ Última Memória Encontrada ✨</h1>
+
+        <p>
+            Você conhece nossa história melhor do que ninguém.
+        </p>
+
+        <div class="loading-container">
+            <div id="loadingBar"></div>
+        </div>
+
+        <span id="loadingText">
+            Desbloqueando Última Memória...
+        </span>
+
+    </div>
+
+    <div id="fadeScreen"></div>
+
+    <script src="js/quiz.js"></script>
+    <script src="music.js"></script>
+    <script>
+        Music.init();
+    </script>
+</body>
+</html>

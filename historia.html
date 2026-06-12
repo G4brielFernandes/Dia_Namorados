@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História ❤️ - História</title>
+
+    <!-- Fontes Estilo "League of Legends" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="css/historia.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="audio/me_gusta.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="progress-bar">
+        <div id="progressFill"></div>
+    </div>
+
+    <div class="scroll-hint">Role para o lado ➔</div>
+
+    <div class="lore-container" id="loreContainer">
+
+        <!-- CAPÍTULO I -->
+        <section class="chapter">
+            <div class="lore-card">
+                <div class="card-image">
+                    <img src="img/foto1.jpg" alt="Foto 1">
+                </div>
+                <div class="card-content">
+                    <span class="chapter-number">Capítulo I</span>
+                    <h1>O Início</h1>
+                    <p>Tudo começou de forma simples.</p>
+                    <p>Um almoço no shopping.</p>
+                    <p>Uma conversa.</p>
+                    <p>Uma Casa de Praia.</p>
+                    <p>Foi lá que a benção da minha vida começou a ser escrita nas estrelas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO II -->
+        <section class="chapter">
+            <div class="lore-card">
+                <div class="card-image">
+                    <img src="img/foto2.jpg" alt="Foto 2">
+                </div>
+                <div class="card-content">
+                    <span class="chapter-number">Capítulo II</span>
+                    <h1>O Primeiro Ano Novo</h1>
+                    <p>Existem momentos que duram apenas alguns segundos.</p>
+                    <p>Mas permanecem para sempre guardados no coração, forjados como o ouro mais puro.</p>
+                    <p>Nosso primeiro Ano Novo juntos foi o estopim de uma grande e épica história.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO III -->
+        <section class="chapter">
+            <div class="lore-card">
+                <div class="card-image">
+                    <img src="img/foto3.jpg" alt="Foto 3">
+                </div>
+                <div class="card-content">
+                    <span class="chapter-number">Capítulo III</span>
+                    <h1>O Natal</h1>
+                    <p>O início da sua gravidez levou embora todas as dúvidas que pudessem existir no mundo.</p>
+                    <p>E deixou apenas a certeza inabalável de que eu queria viver todas as eras ao seu lado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO IV -->
+        <section class="chapter">
+            <div class="lore-card">
+                <div class="card-image">
+                    <img src="img/foto4.jpg" alt="Foto 4">
+                </div>
+                <div class="card-content">
+                    <span class="chapter-number">Capítulo IV</span>
+                    <h1>Os Momentos</h1>
+                    <p>Passamos já por muitas coisas juntos.</p>
+                    <p>Com um coração inquebrável desenhado entre nós.</p>
+                    <p>Sabendo que, no fim de toda tempestade avassaladora...</p>
+                    <p>Vem o arco-íris iluminar o nosso caminho.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO V -->
+        <section class="chapter">
+            <div class="lore-card">
+                <div class="card-image">
+                    <img src="img/foto5.jpg" alt="Foto 5">
+                </div>
+                <div class="card-content">
+                    <span class="chapter-number">Capítulo V</span>
+                    <h1>Nosso Maior Presente</h1>
+                    <p>Nossa história ganhou um novo capítulo.</p>
+                    <p>Um capítulo que carregaria um pedaço vivo de nós dois.</p>
+                    <p>Nosso filho.</p>
+                    <p>A maior lenda que já criamos.</p>
+                    
+                    <div class="end-section">
+                        <h2>Toda grande história deixa memórias...</h2>
+                        <p>Vamos ver se você lembra delas?</p>
+                        <button id="btnQuiz">Iniciar Desafio ✦</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="fadeScreen"></div>
+
+    <!-- Seus Scripts -->
+    <script src="js/historia.js"></script>
+    <script src="music.js"></script>
+    <script>
+        // Caso você ainda use o music.js do original
+        if (typeof Music !== 'undefined') {
+            Music.init();
+        }
+    </script>
+</body>
+</html>

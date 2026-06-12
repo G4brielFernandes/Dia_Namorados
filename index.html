@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Jornada ❤️</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="audio/me_gusta.mp3" type="audio/mpeg">
+    </audio>
+    <div class="stars"></div>
+
+    <div class="container">
+
+        <div class="intro-card">
+
+            <span class="subtitle">
+                Uma jornada especial para
+            </span>
+
+            <h1 class="title">
+                Suely ❤️
+            </h1>
+
+            <p class="description">
+                Algumas histórias não começam completas...
+                <br>
+                Mas todas as grandes histórias merecem ser contadas.
+            </p>
+
+            <button id="btnStart" class="btn-start">
+                Começar Jornada
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="fadeScreen"></div>
+
+    <script src="js/index.js"></script>
+    <script src="music.js"></script>
+    <script>
+        Music.init();
+    </script>
+</body>
+</html>
