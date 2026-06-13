@@ -115,7 +115,10 @@ var App_Historia = {
         }, 100);
 
         setTimeout(function () {
-            // Caminho para o seu quiz
+            Music.saveTime();
+
+            window.location.href =
+                "historia.html";
             window.location.href = "quiz.html";
         }, 1500);
     }

@@ -1,104 +1,66 @@
 var Music = {
 
-    audio: null,
+    init: function(){
 
-    init: function () {
-
-        this.audio =
+        var audio =
             document.getElementById(
                 "bgMusic"
             );
 
-        if (!this.audio) return;
+        if(!audio) return;
 
-        this.loadTime();
-
-        this.startSync();
-
-        if (
-            localStorage.getItem(
-                "music_allowed"
-            ) === "true"
-        ) {
-
-            this.tryPlay();
-
-        }
-
-        this.bindUnlock();
-
-    },
-
-    bindUnlock: function () {
-
-        var self = this;
-
-        document.addEventListener(
-            "click",
-            function () {
-
-                self.tryPlay();
-
-            },
-            { once: true }
-        );
-
-        document.addEventListener(
-            "touchstart",
-            function () {
-
-                self.tryPlay();
-
-            },
-            { once: true }
-        );
-
-    },
-
-    tryPlay: function () {
-
-        if (!this.audio) return;
-
-        this.audio.volume = 0.5;
-
-        this.audio.play()
-            .catch(function(){});
-
-    },
-
-    loadTime: function () {
-
-        let time =
+        let savedTime =
             localStorage.getItem(
                 "music_time"
             );
 
-        if (time) {
+        if(savedTime){
 
-            this.audio.currentTime =
-                parseFloat(time);
+            audio.currentTime =
+                parseFloat(savedTime);
 
         }
 
-    },
+        document.body.addEventListener(
+            "click",
+            function(){
 
-    startSync: function () {
+                audio.play();
 
-        setInterval(() => {
+            },
+            { once:true }
+        );
 
-            if (
-                this.audio &&
-                !this.audio.paused
-            ) {
+        setInterval(function(){
+
+            if(!audio.paused){
 
                 localStorage.setItem(
                     "music_time",
-                    this.audio.currentTime
+                    audio.currentTime
                 );
 
             }
 
-        }, 500);
+        }, 1000);
+
+    },
+
+    saveTime: function(){
+
+        var audio =
+            document.getElementById(
+                "bgMusic"
+            );
+
+        if(audio){
+
+            localStorage.setItem(
+                "music_time",
+                audio.currentTime
+            );
+
+        }
 
     }
 

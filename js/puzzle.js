@@ -172,7 +172,9 @@ var App_Puzzle = {
             $("#successOverlay").addClass("fade-out");
 
             setTimeout(function () {
-                
+                Music.saveTime();
+                window.location.href =
+                    "historia.html";
                 window.location.href = "historia.html";
 
             }, 100);

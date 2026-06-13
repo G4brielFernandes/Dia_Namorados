@@ -233,11 +233,14 @@ var App_Quiz = {
                         );
 
                     setTimeout(function () {
+                        Music.saveTime();
 
+                        window.location.href =
+                            "historia.html";
                         window.location.href =
                             "final.html";
 
-                    }, 1500);
+                    }, 1000);
                 }
 
             }, 50);
