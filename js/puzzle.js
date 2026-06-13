@@ -7,6 +7,7 @@ var App_Puzzle = {
     init: function () {
 
         this.audio = document.getElementById("bgMusic");
+        document.body.addEventListener('click', () => this.startMusic(), { once: true });
 
         // this.startMusic();
 

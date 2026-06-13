@@ -245,6 +245,7 @@ var App_Quiz = {
 };
 
 $(document).ready(function () {
+    document.body.addEventListener('click', () => this.startMusic(), { once: true });
 
     App_Quiz.init();
 

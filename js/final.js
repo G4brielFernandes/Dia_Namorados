@@ -12,6 +12,7 @@ var App_Final = {
         this.typeWriter();
 
         this.createHearts();
+        document.body.addEventListener('click', () => this.startMusic(), { once: true });
 
         this.bindEvents();
     },
