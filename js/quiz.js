@@ -66,7 +66,7 @@ var App_Quiz = {
     init: function () {
 
         // this.startMusic();
-
+        
         this.renderQuestion();
     },
 
@@ -156,6 +156,10 @@ var App_Quiz = {
 
             if (this.hearts <= 0) {
 
+                if(typeof Music !== "undefined"){
+                    Music.saveTime();
+                }
+
                 alert(
                     "Você perdeu todas as vidas ❤️"
                 );
@@ -234,9 +238,6 @@ var App_Quiz = {
 
                     setTimeout(function () {
                         Music.saveTime();
-
-                        window.location.href =
-                            "historia.html";
                         window.location.href =
                             "final.html";
 
@@ -246,17 +247,11 @@ var App_Quiz = {
             }, 50);
     }
 };
-
 $(document).ready(function () {
-    document.addEventListener(
-        "touchstart",
-        function(){
 
-            Music.tryPlay();
-
-        },
-        { once:true }
-    );
+    if(typeof Music !== "undefined"){
+        Music.init();
+    }
 
     App_Quiz.init();
 

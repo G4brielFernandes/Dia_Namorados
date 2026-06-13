@@ -124,9 +124,6 @@ var App_Historia = {
 
         setTimeout(function () {
             Music.saveTime();
-
-            window.location.href =
-                "historia.html";
             window.location.href = "quiz.html";
         }, 1500);
     }

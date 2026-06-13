@@ -1,43 +1,76 @@
 var Music = {
 
-    init: function(){
+    audio: null,
 
-        var audio =
+    init: function() {
+
+        this.audio =
             document.getElementById(
                 "bgMusic"
             );
 
-        if(!audio) return;
-
-        let savedTime =
-            localStorage.getItem(
-                "music_time"
-            );
-
-        if(savedTime){
-
-            audio.currentTime =
-                parseFloat(savedTime);
-
+        if(!this.audio){
+            return;
         }
 
-        document.body.addEventListener(
-            "click",
-            function(){
+        this.audio.addEventListener(
+            "loadedmetadata",
+            () => {
 
-                audio.play();
+                let savedTime =
+                    localStorage.getItem(
+                        "music_time"
+                    );
+
+                if(savedTime){
+
+                    this.audio.currentTime =
+                        parseFloat(savedTime);
+                }
+
+            }
+        );
+
+        document.addEventListener(
+            "pointerdown",
+            () => {
+
+                this.tryPlay();
 
             },
             { once:true }
         );
 
-        setInterval(function(){
+        document.addEventListener(
+            "touchstart",
+            () => {
 
-            if(!audio.paused){
+                this.tryPlay();
+
+            },
+            { once:true }
+        );
+
+        document.addEventListener(
+            "click",
+            () => {
+
+                this.tryPlay();
+
+            },
+            { once:true }
+        );
+
+        setInterval(() => {
+
+            if(
+                this.audio &&
+                !this.audio.paused
+            ){
 
                 localStorage.setItem(
                     "music_time",
-                    audio.currentTime
+                    this.audio.currentTime
                 );
 
             }
@@ -46,22 +79,27 @@ var Music = {
 
     },
 
-    saveTime: function(){
+    tryPlay: function() {
 
-        var audio =
-            document.getElementById(
-                "bgMusic"
-            );
+        if(!this.audio){
+            return;
+        }
 
-        if(audio){
+        this.audio.play()
+            .catch(() => {});
+
+    },
+
+    saveTime: function() {
+
+        if(this.audio){
 
             localStorage.setItem(
                 "music_time",
-                audio.currentTime
+                this.audio.currentTime
             );
 
         }
 
     }
-
 };

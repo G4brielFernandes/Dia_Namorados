@@ -2,22 +2,8 @@ var App_Puzzle = {
 
     pieces: [],
     selectedPiece: null,
-    audio: null,
 
     init: function () {
-
-        this.audio = document.getElementById("bgMusic");
-        document.addEventListener(
-            "touchstart",
-            function(){
-
-                Music.tryPlay();
-
-            },
-            { once:true }
-        );
-
-        // this.startMusic();
 
         this.createPuzzle();
 
@@ -46,22 +32,6 @@ var App_Puzzle = {
 
         });
     },
-
-    startMusic: function () {
-
-        try {
-
-            this.audio.volume = 0.5;
-
-            this.audio.play();
-
-        } catch (e) {
-
-            console.log(e);
-
-        }
-    },
-
     createPuzzle: function () {
 
         var board = $("#puzzleBoard");
@@ -181,8 +151,6 @@ var App_Puzzle = {
 
             setTimeout(function () {
                 Music.saveTime();
-                window.location.href =
-                    "historia.html";
                 window.location.href = "historia.html";
 
             }, 100);
@@ -208,26 +176,10 @@ var App_Puzzle = {
     },
     goHistory: function () {
 
+        Music.saveTime();
+
         $("#fadeScreen")
             .addClass("fade-active");
-
-        if (this.audio) {
-
-            var fade = setInterval(() => {
-
-                if (this.audio.volume > 0.05) {
-
-                    this.audio.volume -= 0.05;
-
-                } else {
-
-                    clearInterval(fade);
-
-                    this.audio.pause();
-                }
-
-            }, 100);
-        }
 
         setTimeout(function () {
 
@@ -239,6 +191,14 @@ var App_Puzzle = {
 };
 
 $(document).ready(function () {
+
+    document.addEventListener(
+        "pointerdown",
+        function () {
+            Music.tryPlay();
+        },
+        { once: true }
+    );
 
     App_Puzzle.init();
 

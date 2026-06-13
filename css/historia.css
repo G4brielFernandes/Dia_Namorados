@@ -296,8 +296,8 @@ body {
 
     .card-image{
         flex:none;
-        height:35%;
-        min-height:220px;
+        height:50%;
+        min-height:300px;
     }
 
     .card-image img{
@@ -360,8 +360,8 @@ body {
 @media(max-width:600px){
 
     .card-image{
-        height:30%;
-        min-height:180px;
+        height:45%;
+        min-height:280px;
     }
 
     .card-content{
