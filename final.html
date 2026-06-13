@@ -139,9 +139,12 @@
 
     <script src="js/final.js"></script>
     <script src="music.js"></script>
-    <script>
-        localStorage.removeItem("music_time");
-        Music.init();
+     <script>
+        // Caso você ainda use o music.js do original
+        if (typeof Music !== 'undefined') {
+            localStorage.removeItem("music_time");
+            Music.init();
+        }
     </script>
 </body>
 </html>

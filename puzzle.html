@@ -77,8 +77,11 @@
 
     <script src="js/puzzle.js"></script>
     <script src="music.js"></script>
-    <script>
-        Music.init();
+     <script>
+        // Caso você ainda use o music.js do original
+        if (typeof Music !== 'undefined') {
+            Music.init();
+        }
     </script>
 </body>
 </html>
