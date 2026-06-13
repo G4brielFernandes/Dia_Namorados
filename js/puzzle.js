@@ -7,7 +7,15 @@ var App_Puzzle = {
     init: function () {
 
         this.audio = document.getElementById("bgMusic");
-        document.body.addEventListener('click', () => this.startMusic(), { once: true });
+        document.addEventListener(
+            "touchstart",
+            function(){
+
+                Music.tryPlay();
+
+            },
+            { once:true }
+        );
 
         // this.startMusic();
 

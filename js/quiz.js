@@ -248,7 +248,15 @@ var App_Quiz = {
 };
 
 $(document).ready(function () {
-    document.body.addEventListener('click', () => this.startMusic(), { once: true });
+    document.addEventListener(
+        "touchstart",
+        function(){
+
+            Music.tryPlay();
+
+        },
+        { once:true }
+    );
 
     App_Quiz.init();
 

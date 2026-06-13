@@ -12,7 +12,15 @@ var App_Final = {
         this.typeWriter();
 
         this.createHearts();
-        document.body.addEventListener('click', () => this.startMusic(), { once: true });
+        document.addEventListener(
+            "touchstart",
+            function(){
+
+                Music.tryPlay();
+
+            },
+            { once:true }
+        );
 
         this.bindEvents();
     },
