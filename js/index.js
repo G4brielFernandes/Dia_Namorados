@@ -15,7 +15,8 @@ var App_Index = {
 
         var self = this;
         $("#btnStart").on("click", function () {
-             localStorage.setItem(
+
+                 localStorage.setItem(
                 "music_allowed",
                 "true"
             );
@@ -24,11 +25,8 @@ var App_Index = {
                 document.getElementById(
                     "bgMusic"
                 );
-
             audio.play();
-
             self.startJourney();
-
         });
         
     },
