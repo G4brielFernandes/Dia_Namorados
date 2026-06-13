@@ -30,7 +30,7 @@ var App_Historia = {
 
         });
         // Necessário para iniciar a música após a primeira interação do usuário, caso o navegador bloqueie o autoplay
-        document.body.addEventListener('click', () => this.startMusic(), { once: true });
+        //document.body.addEventListener('click', () => this.startMusic(), { once: true });
     },
 
     bindEvents: function () {

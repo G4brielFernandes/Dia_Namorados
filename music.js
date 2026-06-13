@@ -4,7 +4,10 @@ var Music = {
 
     init: function () {
 
-        this.audio = document.getElementById("bgMusic");
+        this.audio =
+            document.getElementById(
+                "bgMusic"
+            );
 
         if (!this.audio) return;
 
@@ -22,6 +25,34 @@ var Music = {
 
         }
 
+        this.bindUnlock();
+
+    },
+
+    bindUnlock: function () {
+
+        var self = this;
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                self.tryPlay();
+
+            },
+            { once: true }
+        );
+
+        document.addEventListener(
+            "touchstart",
+            function () {
+
+                self.tryPlay();
+
+            },
+            { once: true }
+        );
+
     },
 
     tryPlay: function () {
@@ -31,7 +62,7 @@ var Music = {
         this.audio.volume = 0.5;
 
         this.audio.play()
-            .catch(() => {});
+            .catch(function(){});
 
     },
 
@@ -70,4 +101,5 @@ var Music = {
         }, 500);
 
     }
+
 };
