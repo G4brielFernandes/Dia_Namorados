@@ -8,7 +8,7 @@ var App_Puzzle = {
 
         this.audio = document.getElementById("bgMusic");
 
-        this.startMusic();
+        // this.startMusic();
 
         this.createPuzzle();
 

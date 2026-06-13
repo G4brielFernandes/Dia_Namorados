@@ -65,7 +65,7 @@ var App_Quiz = {
 
     init: function () {
 
-        this.startMusic();
+        // this.startMusic();
 
         this.renderQuestion();
     },

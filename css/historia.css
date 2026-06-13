@@ -272,30 +272,108 @@ body {
     opacity: 1 !important;
 }
 
-/* Responsividade para Celular */
 @media(max-width: 900px) {
-    .lore-card {
-        flex-direction: column;
-        height: 90vh;
-        overflow-y: hidden;
+
+    body{
+        overflow-y:auto;
     }
-    .card-image {
-        flex: none;
-        height: 35%; /* Reduzido levemente para dar mais espaço ao texto no mobile */
+
+    .scroll-hint{
+        bottom:10px;
+        font-size:.7rem;
     }
-    .card-image::after {
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(to right, transparent, var(--lol-gold), transparent);
+
+    .chapter{
+        padding:10px;
     }
-    .card-content {
-        padding: 2rem;
-        height: 65%; /* Garante que a área de texto ocupe o restante */
+
+    .lore-card{
+        flex-direction:column;
+        width:100%;
+        height:95vh;
+        overflow:hidden;
     }
-    .card-content h1 {
-        font-size: 2rem;
+
+    .card-image{
+        flex:none;
+        height:35%;
+        min-height:220px;
     }
-    .card-content p {
-        font-size: 1rem;
+
+    .card-image img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
     }
+
+    .card-image::after{
+        width:100%;
+        height:2px;
+        top:auto;
+        bottom:0;
+        right:auto;
+        background:linear-gradient(
+            to right,
+            transparent,
+            var(--lol-gold),
+            transparent
+        );
+    }
+
+    .card-content{
+        flex:1;
+        padding:20px;
+        overflow-y:auto;
+    }
+
+    .chapter-number{
+        font-size:.7rem;
+        letter-spacing:3px;
+    }
+
+    .card-content h1{
+        font-size:1.8rem;
+        margin-bottom:15px;
+    }
+
+    .card-content p{
+        font-size:.95rem;
+        line-height:1.6;
+        margin-bottom:10px;
+    }
+
+    .end-section{
+        margin-top:20px;
+        padding-top:20px;
+    }
+
+    .end-section h2{
+        font-size:1.1rem;
+    }
+
+    #btnQuiz{
+        width:100%;
+        padding:15px;
+        font-size:.9rem;
+    }
+}
+@media(max-width:600px){
+
+    .card-image{
+        height:30%;
+        min-height:180px;
+    }
+
+    .card-content{
+        padding:15px;
+    }
+
+    .card-content h1{
+        font-size:1.5rem;
+    }
+
+    .card-content p{
+        font-size:.9rem;
+    }
+
 }

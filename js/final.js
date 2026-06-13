@@ -7,7 +7,7 @@ var App_Final = {
 
     init: function () {
 
-        this.startMusic();
+        // this.startMusic();
 
         this.typeWriter();
 

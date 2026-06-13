@@ -7,11 +7,28 @@ var App_Historia = {
         this.container = document.getElementById("loreContainer");
         
         // Tenta tocar a música (pode ser bloqueado pelo navegador até o primeiro clique)
-        this.startMusic();
+        // this.startMusic();
         this.observeSections();
         this.bindEvents();
         this.updateProgress();
+        let startX = 0;
 
+        this.container.addEventListener("touchstart", function(e){
+            startX = e.touches[0].clientX;
+        });
+
+        this.container.addEventListener("touchend", function(e){
+
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            if(Math.abs(diff) > 50){
+
+                self.container.scrollLeft += diff * 2;
+
+            }
+
+        });
         // Necessário para iniciar a música após a primeira interação do usuário, caso o navegador bloqueie o autoplay
         document.body.addEventListener('click', () => this.startMusic(), { once: true });
     },

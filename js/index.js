@@ -14,36 +14,27 @@ var App_Index = {
     bindEvents: function () {
 
         var self = this;
-
         $("#btnStart").on("click", function () {
+            localStorage.setItem(
+                "music_allowed",
+                "true"
+            );
             Music.tryPlay();
             self.startJourney();
 
         });
+        
     },
 
     startJourney: function () {
-
-        try {
-
-            this.audio.volume = 0.5;
-
-            this.audio.play();
-
-        } catch (e) {
-
-            console.log(e);
-
-        }
-
-        localStorage.setItem("jornada_iniciada", "true");
-
+        localStorage.setItem(
+            "jornada_iniciada",
+            "true"
+        );
         $("#fadeScreen").addClass("fade-active");
 
         setTimeout(function () {
-
             window.location.href = "puzzle.html";
-
         }, 1500);
     },
 
